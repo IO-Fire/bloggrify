@@ -2,6 +2,16 @@
     <div>
         <component
             :is="imgComponent"
+            v-if="enableAttrs"
+            :src="refinedSrc"
+            :alt="alt"
+            :width="width"
+            :height="height"
+            v-bind="$attrs"
+        />
+        <component
+            :is="imgComponent"
+            v-else
             :src="refinedSrc"
             :alt="alt"
             :width="width"
@@ -35,6 +45,11 @@ const props = defineProps({
     height: {
         type: [String, Number],
         default: undefined
+    },
+    enableAttrs: {
+        type: Boolean,
+        default: false,
+        required: false
     }
 })
 

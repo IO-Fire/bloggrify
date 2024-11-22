@@ -5,6 +5,15 @@ export default defineNuxtConfig({
         }
     },
 
+    // To enable Nuxt Image within ProseImg
+    // runtimeConfig: {
+    //     public: {
+    //         mdc: {
+    //             useNuxtImage: true,
+    //         }
+    //     }
+    // },
+
     devtools: { enabled: true },
     modules: [
         '@nuxtjs/tailwindcss',
