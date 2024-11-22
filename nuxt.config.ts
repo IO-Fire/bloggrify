@@ -1,4 +1,12 @@
 export default defineNuxtConfig({
+    app: {
+        head: {
+            htmlAttrs: {
+                prefix: 'og: http://ogp.me/ns#',
+            }
+        }
+    },
+
     routeRules: {
         '/api/search': {
             prerender: true
