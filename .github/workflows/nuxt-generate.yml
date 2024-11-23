@@ -11,18 +11,32 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        timeout-minutes: 10
 
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v2
-
+              uses: actions/checkout@v4.2.2
+              
+            - run: corepack enable
             - name: Setup Node.js
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4.1.0
               with:
-                  node-version: '18'
+                  node-version: '20'
+                  registry-url: "https://registry.npmjs.org/"
+                  cache: "pnpm"
+            
+            - name: Cache playwright
+              uses: actions/cache@v4.1.2
+              with:
+                path: |
+                  ~/.cache/ms-playwright
+                key: ${{ runner.os }}-playwright
 
+            - name: Install playwright
+              run: pnpx playwright install --with-deps
+            
             - name: Install dependencies
-              run: npm install
+              run: pnpm install
 
             - name: Generate static site
-              run: npm run generate
+              run: pnpm run generate
