@@ -1,9 +1,9 @@
-module.exports = {
-    root: true,
-    extends: [
-        '@nuxt/eslint-config'
-    ],
-    rules: {
+// @ts-check
+
+import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+
+export default createConfigForNuxt().overrideRules(
+    {
         // Global
         semi: ['error', 'never'],
         quotes: ['error', 'single'],
@@ -17,4 +17,12 @@ module.exports = {
         // Typescript
         '@typescript-eslint/indent': ['error', 4],
     }
-}
+).append({
+    ignores: [
+        '.nuxt/*',
+        '.output/*',
+        'dist/*',
+        'node_modules/*',
+        'pnpm-lock.yaml'
+    ]
+})
