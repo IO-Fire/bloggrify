@@ -192,7 +192,7 @@ if (isCategory) {
         ogType: 'article',
         ogUrl: postLink,
         twitterTitle: doc.value?.title,
-        twitterCard: 'summary',
+        twitterCard: useAppConfig().twitterCard as ('summary_large_image' | 'summary' | 'app' | 'player' | null | undefined ) || 'summary',
         articleTag: doc.value?.tags ? doc.value.tags?.toString() : ''
     })
     useHead({

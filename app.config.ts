@@ -36,6 +36,10 @@ export default defineAppConfig({
         sharing_networks: []
     },
 
+    // Set the type of Twitter (X) Card used https://developer.x.com/en/docs/x-for-websites/cards/overview/abouts-cards
+    // valid values: 'summary_large_image', 'summary', 'app', 'player'.
+    twitterCard: 'summary_large_image',
+
     pagination: {
         per_page: 5,
     },
