@@ -42,7 +42,7 @@ if (isCategory) {
     const title = 'Category: ' + category
     const description = title
     useSeoMeta({
-        title: 'Archives',
+        title: title,
         description: description,
         ogTitle: title,
         ogDescription: description,
@@ -110,7 +110,7 @@ if (isCategory) {
     const title = 'Tag: ' + tag
     const description = title
     useSeoMeta({
-        title: 'Archives',
+        title: title,
         description: description,
         ogTitle: title,
         ogDescription: description,
